@@ -9,17 +9,22 @@ namespace Scripts
             ApplyRotation();
         }
 
-        [SerializeField] private Rotation rotation = Rotation.Right;
+        [SerializeField] private Rotation rotation = Rotation.DiagonalTopRight;
 
         public void Rotate()
         {
+            Debug.Log("rotate");
+            
             switch (rotation)
             {
-                case Rotation.Left:
-                    rotation = Rotation.Right;
+                case Rotation.DiagonalTopLeft:
+                    rotation = Rotation.DiagonalTopRight;
                     break;
-                case Rotation.Right:
-                    rotation = Rotation.Left;
+                case Rotation.DiagonalTopRight:
+                    rotation = Rotation.DiagonalTopLeft;
+                    break;
+                default:
+                    rotation = Rotation.DiagonalTopRight;
                     break;
             }
 
@@ -30,16 +35,17 @@ namespace Scripts
         {
             switch (rotation)
             {
-                case Rotation.Left:
-                    transform.rotation = Quaternion.Euler(0, 0, -45);
+                case Rotation.DiagonalTopLeft:
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
                     break;
-                case Rotation.Right:
-                    transform.rotation = Quaternion.Euler(0, 0, 45);
+                case Rotation.DiagonalTopRight:
+                    transform.rotation = Quaternion.Euler(0, 0, 90);
                     break;
             }
         }
 
         public CellType Type => CellType.Mirror;
         public Rotation Rotation => rotation;
+        public Transform Transform => transform;
     }
 }

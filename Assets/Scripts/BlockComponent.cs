@@ -7,5 +7,7 @@ namespace Scripts
         public CellType Type => CellType.Block;
 
         public Rotation Rotation => Rotation.None;
+
+        public Transform Transform => transform;
     }
 }

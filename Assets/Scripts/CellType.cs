@@ -3,7 +3,7 @@
     public enum CellType
     {
         Mirror,
-        Empty,
+        Laser,
         Block
     }
 }

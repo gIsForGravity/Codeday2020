@@ -3,7 +3,11 @@
     public enum Rotation
     {
         None,
-        Right,
-        Left
+        DiagonalTopRight,
+        DiagonalTopLeft,
+        Up,
+        Down,
+        Left,
+        Right
     }
 }
