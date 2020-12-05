@@ -1,28 +1,32 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class ClickManager : MonoBehaviour
+namespace Scripts
 {
-    private Camera _camera;
-
-    void Awake()
+    public class ClickManager : MonoBehaviour
     {
-        _camera = GetComponent<Camera>();
-    }
+        private Camera _camera;
 
-    void Update () {
-        if (Input.GetMouseButtonDown(0))
+        void Awake()
         {
-            Debug.Log("click");
-            Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider != null) {
-                Debug.Log(hit.collider.gameObject.name);
-                hit.transform.position = new Vector2(10, 15);
+            _camera = GetComponent<Camera>();
+        }
+
+        void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+                if (hit.collider == null) return;
+
+                MirrorComponent mirror = hit.collider.GetComponent<MirrorComponent>();
+
+                if (mirror)
+                    mirror.Rotate();
             }
         }
-    }
 
+    }
 }
