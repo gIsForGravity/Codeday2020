@@ -11,5 +11,6 @@ namespace Scripts
         public Rotation endingPointRotation;
         public Vector2[] mirrors;
         public Rotation[] mirrorRotations;
+        public Vector2[] obstacles;
     }
 }

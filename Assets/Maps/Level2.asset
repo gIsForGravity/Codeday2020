@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b95fa38fa2c4a279a5f8b3b16e763c4, type: 3}
-  m_Name: Level1
+  m_Name: Level2
   m_EditorClassIdentifier: 
-  startingPoint: {x: 7, y: 7}
-  startingPointRotation: 3
-  endingPoint: {x: 0, y: 0}
+  startingPoint: {x: 1, y: 2}
+  startingPointRotation: 6
+  endingPoint: {x: 1, y: 3}
   endingPointRotation: 4
   mirrors:
-  - {x: 0, y: 3}
-  - {x: 7, y: 3}
-  mirrorRotations: 0200000001000000
+  - {x: 4, y: 2}
+  - {x: 4, y: 0}
+  - {x: 7, y: 0}
+  - {x: 7, y: 6}
+  - {x: 1, y: 6}
+  mirrorRotations: 0100000001000000010000000100000001000000

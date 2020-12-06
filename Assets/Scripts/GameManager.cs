@@ -16,6 +16,7 @@ namespace Scripts
         private readonly ICell[,] _grid = new ICell[8,8];
         private Vector2 _startLocation;
 
+        public static int Level => level;
         private static int level = 0;
         private void Awake()
         {
@@ -47,6 +48,14 @@ namespace Scripts
                 mirror.CheckRotation();
             }
             
+            if (map.obstacles != null)
+                foreach (var location in map.obstacles)
+                {
+                    var mirror = Instantiate(Resources.Load<GameObject>("Obstacle")).GetComponent<BlockComponent>();
+
+                    _grid[(int) location.x, (int) location.y] = mirror;
+                }
+            
             for (int iy = 0; iy < 8; iy++)
             {
                 for (int ix = 0; ix < 8; ix++)
@@ -64,12 +73,8 @@ namespace Scripts
 
             if (!success) return;
             level += 1;
-            if (level > levels.Length) Finish();
-        }
-
-        private void Finish()
-        {
-            SceneManager.LoadScene("");
+            if (level > levels.Length) SceneManager.LoadScene("EndingScene");
+            else SceneManager.LoadScene("PlatformerScene");
         }
 
         private bool CalculateResult(out List<Vector3> path)
