@@ -6,7 +6,7 @@ namespace Scripts
     {
         private void Awake()
         {
-            ApplyRotation();
+            CheckRotation();
         }
 
         public void Rotate()
@@ -26,10 +26,10 @@ namespace Scripts
                     break;
             }
 
-            ApplyRotation();
+            CheckRotation();
         }
 
-        private void ApplyRotation()
+        public void CheckRotation()
         {
             switch (Rotation)
             {

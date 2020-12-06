@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scripts
 {
@@ -15,7 +16,7 @@ namespace Scripts
         private readonly ICell[,] _grid = new ICell[8,8];
         private Vector2 _startLocation;
 
-        private int level = 0;
+        private static int level = 0;
         private void Awake()
         {
             LoadMap(levels[level]);
@@ -27,6 +28,10 @@ namespace Scripts
             outputComponent.Rotation = map.startingPointRotation;
             _grid[(int) map.startingPoint.x, (int) map.startingPoint.y] = outputComponent;
             _startLocation = map.startingPoint;
+            
+            var inputComponent = Instantiate(Resources.Load<GameObject>("Input")).GetComponent<InputComponent>();
+            inputComponent.Rotation = map.startingPointRotation;
+            _grid[(int) map.endingPoint.x, (int) map.endingPoint.y] = inputComponent;
 
             if (map.mirrors.Length != map.mirrorRotations.Length) throw new ArgumentException("mirrors and mirrorRotations have a different length.");
 
@@ -39,6 +44,7 @@ namespace Scripts
 
                 _grid[(int) location.x, (int) location.y] = mirror;
                 mirror.Rotation = rotation;
+                mirror.CheckRotation();
             }
             
             for (int iy = 0; iy < 8; iy++)
@@ -55,12 +61,15 @@ namespace Scripts
             var nodes = path.ToArray();
             line.positionCount = nodes.Length;
             line.SetPositions(nodes);
-            line.positionCount += 1;
-            
 
             if (!success) return;
             level += 1;
-            if (level > levels.Length) throw new NotImplementedException();
+            if (level > levels.Length) Finish();
+        }
+
+        private void Finish()
+        {
+            SceneManager.LoadScene("");
         }
 
         private bool CalculateResult(out List<Vector3> path)
@@ -123,6 +132,8 @@ namespace Scripts
                         }
                     } else if (cell.Type == CellType.Input)
                         return true;
+                    else if (cell.Type == CellType.Block)
+                        return false;
                 }
 
                 switch (currentRotation)
@@ -141,10 +152,8 @@ namespace Scripts
                         break;
                 }
 
-                if (x > 7 || x < 0 || y > 7 || y < 0) break;
+                if (x > 7 || x < 0 || y > 7 || y < 0) return false;
             }
-
-            return false;
         }
 
         private Vector2 LocatePosition(int x, int y) => new Vector2(x * 0.6f + topLeft.x, topLeft.y - y * 0.6f);

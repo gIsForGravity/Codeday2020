@@ -7,6 +7,8 @@ namespace Scripts
     {
         public Vector2 startingPoint;
         public Rotation startingPointRotation;
+        public Vector2 endingPoint;
+        public Rotation endingPointRotation;
         public Vector2[] mirrors;
         public Rotation[] mirrorRotations;
     }
