@@ -362,6 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topLeft: {x: -2.1, y: 2.29}
   line: {fileID: 1061836587}
+  levels:
+  - {fileID: 11400000, guid: ac298ba9e5e469849a303a6e69a3f167, type: 2}
 --- !u!4 &563442193
 Transform:
   m_ObjectHideFlags: 0
@@ -453,8 +455,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 0.88235295, g: 0.9607843, b: 0.99607843, a: 1}
+      key1: {r: 0.88235295, g: 0.9607843, b: 0.99607843, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

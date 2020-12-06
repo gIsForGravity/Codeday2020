@@ -6,7 +6,6 @@ namespace Scripts
     {
         CellType Type { get; }
         Rotation Rotation { get; }
-        
         Transform Transform { get; }
     }
 }

@@ -4,6 +4,7 @@
     {
         Mirror,
         Laser,
-        Block
+        Block,
+        Input
     }
 }
