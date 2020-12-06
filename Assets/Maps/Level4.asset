@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: Level4
   m_EditorClassIdentifier: 
   startingPoint: {x: 0, y: 0}
-  startingPointRotation: 0
-  endingPoint: {x: 0, y: 0}
-  endingPointRotation: 0
-  mirrors: []
-  mirrorRotations: 
+  startingPointRotation: 4
+  endingPoint: {x: 4, y: 0}
+  endingPointRotation: 5
+  mirrors:
+  - {x: 0, y: 2}
+  - {x: 1, y: 3}
+  - {x: 2, y: 4}
+  - {x: 1, y: 7}
+  - {x: 2, y: 0}
+  - {x: 5, y: 2}
+  - {x: 5, y: 7}
+  - {x: 7, y: 3}
+  - {x: 7, y: 4}
+  mirrorRotations: 010000000100000001000000010000000100000001000000010000000100000001000000
   obstacles: []

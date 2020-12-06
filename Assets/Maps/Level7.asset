@@ -10,26 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b95fa38fa2c4a279a5f8b3b16e763c4, type: 3}
-  m_Name: Level5
+  m_Name: Level7
   m_EditorClassIdentifier: 
-  startingPoint: {x: 0, y: 3}
+  startingPoint: {x: 0, y: 0}
   startingPointRotation: 6
-  endingPoint: {x: 0, y: 6}
+  endingPoint: {x: 1, y: 2}
   endingPointRotation: 6
   mirrors:
-  - {x: 2, y: 0}
-  - {x: 2, y: 3}
-  - {x: 2, y: 6}
-  - {x: 2, y: 7}
-  - {x: 4, y: 0}
-  - {x: 4, y: 3}
-  - {x: 5, y: 5}
-  - {x: 6, y: 3}
-  - {x: 6, y: 4}
-  - {x: 7, y: 0}
-  - {x: 7, y: 5}
-  mirrorRotations: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  obstacles:
+  - {x: 0, y: 1}
+  - {x: 0, y: 7}
+  - {x: 1, y: 3}
+  - {x: 1, y: 6}
   - {x: 2, y: 5}
-  - {x: 5, y: 0}
-  - {x: 7, y: 3}
+  - {x: 2, y: 6}
+  - {x: 5, y: 2}
+  - {x: 5, y: 3}
+  - {x: 5, y: 5}
+  - {x: 6, y: 1}
+  - {x: 6, y: 6}
+  - {x: 7, y: 0}
+  - {x: 7, y: 7}
+  mirrorRotations: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  obstacles: []
